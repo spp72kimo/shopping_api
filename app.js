@@ -1,13 +1,13 @@
 require("dotenv").config();
+const cors = require("cors");
 const express = require("express");
 const app = new express();
 const bodyParser = require("body-parser");
 const port = process.env.EXPRESS_PORT || 3000;
 
-const db = require("./models");
-
 const userRouter = require("./routers/user");
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

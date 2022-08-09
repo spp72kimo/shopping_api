@@ -23,8 +23,7 @@ module.exports = {
       },
       role: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        default: 3,
+        defaultValue: "3",
       },
       createdAt: {
         allowNull: false,

@@ -48,7 +48,7 @@ const userController = {
           });
         })
         .catch((err) => {
-          res.json(resError(err.name));
+          res.json(resError(err.name + err.message));
         });
     });
   },

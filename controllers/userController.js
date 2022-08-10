@@ -63,6 +63,7 @@ const userController = {
       const { id, username, email } = data;
       const hash = data.password;
       bcrypt.compare(password, hash, (err, result) => {
+        console.log("result: ", result);
         if (result) {
           return res.json({
             token: jwt.sign(

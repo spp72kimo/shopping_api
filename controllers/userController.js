@@ -60,7 +60,7 @@ const userController = {
         username,
       },
     }).then((data) => {
-      const { id, username, email } = data;
+      const { username, email } = data;
       const hash = data.password;
       bcrypt.compare(password, hash, (err, result) => {
         if (result) {

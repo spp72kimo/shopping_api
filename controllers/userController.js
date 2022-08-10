@@ -60,7 +60,8 @@ const userController = {
         username,
       },
     }).then((data) => {
-      const { username, email } = data;
+      if (!data) return res.json(resError("Username or password is wrong!"));
+      const { id, username, email } = data;
       const hash = data.password;
       bcrypt.compare(password, hash, (err, result) => {
         if (result) {
@@ -72,7 +73,6 @@ const userController = {
             ok: 1,
           });
         } else {
-          console.log("input data incorrect!!");
           return res.json(resError("Username or password is wrong!"));
         }
       });

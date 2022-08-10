@@ -63,7 +63,6 @@ const userController = {
       const { id, username, email } = data;
       const hash = data.password;
       bcrypt.compare(password, hash, (err, result) => {
-        console.log("result: ", result);
         if (result) {
           return res.json({
             token: jwt.sign(
@@ -72,7 +71,10 @@ const userController = {
             ),
             ok: 1,
           });
-        } else return res.json(resError("Username or password is wrong!"));
+        } else {
+          console.log("input data incorrect!!");
+          return res.json(resError("Username or password is wrong!"));
+        }
       });
     });
   },
